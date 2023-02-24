@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Colombia.Models
+namespace ColombiaTurismo.Models
 {
     public class Department
     {
@@ -14,7 +14,7 @@ namespace Colombia.Models
         public string? PhonePrefix { get; set; }
         public int CountryId { get; set; }
         public virtual City CityCapital {get;set;}
-        public virtual api.Models.Country Country {get;set;}
+        public virtual Country Country {get;set;}
         public ICollection<City> Cities {get;set;}
         public int? RegionId { get; set; }
         public virtual Region Region { get; set; }

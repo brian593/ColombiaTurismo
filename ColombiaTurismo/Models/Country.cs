@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace api.Models
+namespace ColombiaTurismo.Models
 {
     public class Country
     {
@@ -19,7 +19,7 @@ namespace api.Models
         public string? PhonePrefix { get; set; }
         public string? RadioPrefix { get; set; }
         public string? AircraftPrefix { get; set; }
-        public virtual ICollection<Colombia.Models.Department> Departments { get; set; }
-        public virtual ICollection<Colombia.Models.President> Presidents { get; set; }
+        public virtual ICollection<Department> Departments { get; set; }
+        public virtual ICollection<President> Presidents { get; set; }
     }
 }

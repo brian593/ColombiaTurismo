@@ -1,4 +1,4 @@
-﻿namespace Colombia.Models
+﻿namespace ColombiaTurismo.Models
 {
     public class Paramo
     {

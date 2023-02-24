@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Forms;
 
-namespace Catapp_Catador.ViewModels
+namespace ColombiaTurismo.PagesModels
 {
     public class PatronVM:BaseViewModel
     {

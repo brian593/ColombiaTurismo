@@ -4,9 +4,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
-namespace Catapp_Administrador.ViewModels
+namespace ColombiaTurismo.PagesModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

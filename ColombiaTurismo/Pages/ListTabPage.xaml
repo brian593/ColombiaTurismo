@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ColombiaTurismo.Pages.ListTabPage"
+             Title="Colombia Turismo">
+     <ScrollView VerticalScrollBarVisibility="Never">
+       <Grid RowDefinitions="Auto,Auto,Auto,*" ColumnDefinitions="*,*" Padding="20">
+             <!--Icons
+            <Image Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" Source="burger"/>
+            <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="End" HeightRequest="25" WidthRequest="30" Source="change"/>-->
+            <!-- Title and results description-->
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Lugares turisticos de Colomnbia" Padding="0,20" FontSize="20"/>
+            <Label Grid.Row="2" Grid.Column="0" Text="{Binding TotalCount}" TextColor="#8f909f"/>
+            <Label Grid.Row="2" Grid.Column="1" Text="Acerca de" HorizontalTextAlignment="End" TextColor="#8f909f"/>
+
+           <!-- Catalog--> 
+               <CollectionView  VerticalScrollBarVisibility="Never" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,20,0,0"
+                    ItemsSource="{Binding TouristAttractions}">
+                         <CollectionView.ItemTemplate>
+                            <DataTemplate>  
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10" Margin="0,0,0,20">
+                                    <!-- Main image-->
+
+                                    <CarouselView ItemsSource="{Binding Images}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" >
+                                        <CarouselView.ItemTemplate>
+                                            <DataTemplate>
+                                              <Frame HasShadow="False" WidthRequest="350" BorderColor="Transparent" CornerRadius="20" Padding="0" IsClippedToBounds="True">
+                                                <Image Source="{Binding .}" Aspect="Fill" HeightRequest="230"/>
+                                               </Frame>
+                                            </DataTemplate>
+                                        </CarouselView.ItemTemplate>
+                                    </CarouselView>
+   
+                                   
+                                    <Button Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="4" Text="Mas información" VerticalOptions="Start" HorizontalOptions="Start" FontSize="9" TextColor="White"  HeightRequest="30" CornerRadius="10" Margin="10,20,0,0"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding Name}" FontSize="18" VerticalTextAlignment="Center"/>
+
+                                   
+                                    <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" TextColor="#575867"  Padding="0,0,0,10" Text="{Binding Description}"/>
+
+                                    <!-- Features-->
+                                    <!--<Image Grid.Row="3" Grid.Column="0" Source="beds" Style="{StaticResource FeatureControlImage}"/>
+                                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Beds}" FontSize="12" TextColor="#797a87" HorizontalTextAlignment="Start"/>
+                                    <Image Grid.Row="3" Grid.Column="2" Source="baths" Style="{StaticResource FeatureControlImage}"/>
+                                    <Label Grid.Row="3" Grid.Column="3" Text="{Binding Bath}" FontSize="12" TextColor="#797a87" HorizontalTextAlignment="Start"/>
+                                    <Image Grid.Row="3" Grid.Column="4" Source="sqfts" Style="{StaticResource FeatureControlImage}"/>
+                                    <Label Grid.Row="3" Grid.Column="5" Text="{Binding Sqfts}" FontSize="12" TextColor="#797a87" HorizontalTextAlignment="Start"/>
+                                    <Label Grid.Row="3" Grid.Column="6" Text="{Binding BuildingType}" FontSize="12" TextColor="#797a87"/>-->
+                            </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                   </CollectionView> 
+        </Grid>
+    </ScrollView>
+</ContentPage>

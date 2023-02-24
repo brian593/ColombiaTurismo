@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Colombia.Models
+namespace ColombiaTurismo.Models
 {
     public class Region
 	{

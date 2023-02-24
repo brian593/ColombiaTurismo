@@ -15,7 +15,7 @@
 		<ApplicationTitle>ColombiaTurismo</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.colombiaturismo</ApplicationId>
+		<ApplicationId>com.brian593.colombiaturismo</ApplicationId>
 		<ApplicationIdGuid>de833586-af9f-4794-a838-81b4bba15e2f</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -50,6 +50,19 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Pages\" />
+	  <None Remove="Models\" />
+	  <None Remove="PagesModels\" />
+	  <None Remove="Services\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Pages\" />
+	  <Folder Include="Models\" />
+	  <Folder Include="PagesModels\" />
+	  <Folder Include="Services\" />
+	</ItemGroup>
 </Project>

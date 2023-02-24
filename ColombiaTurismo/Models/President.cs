@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Colombia.Models
+namespace ColombiaTurismo.Models
 {
     public class President
     {
