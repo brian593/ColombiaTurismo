@@ -1,4 +1,7 @@
-﻿namespace ColombiaTurismo;
+﻿using System.Collections.ObjectModel;
+using ColombiaTurismo.Models;
+
+namespace ColombiaTurismo;
 
 public partial class App : Application
 {
@@ -7,6 +10,9 @@ public partial class App : Application
 		InitializeComponent();
 
 		MainPage = new AppShell();
+
 	}
+    public List<TouristAttraction> GeneralTouristAttractions { get; set; }
+    public int IdPlace { get; set; }
 }
 

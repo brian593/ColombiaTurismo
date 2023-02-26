@@ -2,19 +2,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ColombiaTurismo.Pages.ListTabPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="Colombia Turismo">
-     <ScrollView VerticalScrollBarVisibility="Never">
+    <ScrollView>
+
+
+    <StackLayout toolkit:StateContainer.CurrentState="{Binding CurrentState}">
+        <toolkit:StateContainer.StateViews>
+            <VerticalStackLayout toolkit:StateView.StateKey="Loading"
+                                 VerticalOptions="Center" HorizontalOptions="Center">
+                <ActivityIndicator IsRunning="True" />
+                <Label Text="Cargando..." />
+            </VerticalStackLayout>
+             <ScrollView VerticalScrollBarVisibility="Never" toolkit:StateView.StateKey="Success">
        <Grid RowDefinitions="Auto,Auto,Auto,*" ColumnDefinitions="*,*" Padding="20">
              <!--Icons
             <Image Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" Source="burger"/>
             <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="End" HeightRequest="25" WidthRequest="30" Source="change"/>-->
             <!-- Title and results description-->
-            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Lugares turisticos de Colomnbia" Padding="0,20" FontSize="20"/>
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Lugares turisticos de Colombia" Padding="0,20" FontSize="20"/>
             <Label Grid.Row="2" Grid.Column="0" Text="{Binding TotalCount}" TextColor="#8f909f"/>
             <Label Grid.Row="2" Grid.Column="1" Text="Acerca de" HorizontalTextAlignment="End" TextColor="#8f909f"/>
 
            <!-- Catalog--> 
-               <CollectionView  VerticalScrollBarVisibility="Never" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,20,0,0"
+               <CollectionView x:Name="listView" VerticalScrollBarVisibility="Never" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,20,0,0"
                     ItemsSource="{Binding TouristAttractions}">
                          <CollectionView.ItemTemplate>
                             <DataTemplate>  
@@ -32,7 +43,16 @@
                                     </CarouselView>
    
                                    
-                                    <Button Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="4" Text="Mas información" VerticalOptions="Start" HorizontalOptions="Start" FontSize="9" TextColor="White"  HeightRequest="30" CornerRadius="10" Margin="10,20,0,0"/>
+                                    <Button Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="4"
+                                            Text="Mas información" VerticalOptions="Start"
+                                            HorizontalOptions="Start" FontSize="9" TextColor="White"
+                                            HeightRequest="30" CornerRadius="10" Margin="10,20,0,0"
+
+                                              Command="{Binding BindingContext.ShowDescriptionCommand,
+                                                 Source={x:Reference Name=listView}}"
+                                                 CommandParameter="{Binding .}"
+
+                                            />
                                     <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding Name}" FontSize="18" VerticalTextAlignment="Center"/>
 
                                    
@@ -52,4 +72,10 @@
                    </CollectionView> 
         </Grid>
     </ScrollView>
+
+        </toolkit:StateContainer.StateViews>
+    
+</StackLayout>
+            </ScrollView>
+
 </ContentPage>
