@@ -6,16 +6,14 @@
    <ScrollView>
         <Grid RowDefinitions="Auto,*"> 
             <Image Grid.Row="0" Source="{Binding Image}" HeightRequest="390"  Margin="0,-50,0,0" Aspect="AspectFill"/>
-            <Button Grid.Row="0" Text="FEATURED" VerticalOptions="Start" HorizontalOptions="Start" FontSize="10" TextColor="White" HeightRequest="20" CornerRadius="10" BackgroundColor="#7bd944" Margin="{OnPlatform Android='10,20,0,0', iOS='10,0,0,0'}"/>
-            <Button Grid.Row="0" Text="3" VerticalOptions="Start" HorizontalOptions="End" FontSize="10" TextColor="#5e606b" HeightRequest="30" WidthRequest="30" Padding="5,0,0,0" Opacity="0.80" CornerRadius="7" BackgroundColor="#5e606c" Margin="{OnPlatform Android='0,20,10,0', iOS='0,0,10,0'}"/>
-            <Button Grid.Row="0" Text="3" VerticalOptions="Start" HorizontalOptions="End" FontSize="10" TextColor="#5e606b" HeightRequest="30" WidthRequest="30" Padding="5,0,0,0" Opacity="0.80" CornerRadius="7" BackgroundColor="#5e606c" Margin="{OnPlatform Android='0,60,10,0', iOS='0,40,10,0'}"/>
-            <Button Grid.Row="0" Text="14 | 360" VerticalOptions="End" HorizontalOptions="End" FontSize="10" TextColor="White" HeightRequest="22" WidthRequest="80" Opacity="0.80" CornerRadius="10" BackgroundColor="#5e606c" Margin="0,0,10,60"/>
             <Frame Grid.Row="1" CornerRadius="40" BackgroundColor="White" BorderColor="Transparent" Padding="20,10" Margin="0,-36,0,0" HasShadow="False" VerticalOptions="FillAndExpand">
                 <VerticalStackLayout>
-                    <Label Text="{Binding MyTouristAttraction.Name}"/>
-                    <Label Text="{Binding MyTouristAttraction.Description}"
+                    <Label Text="{Binding MyTouristAttraction.Name}" FontSize="Title"/>
+                    <Label Text="{Binding MyTouristAttraction.Description}" FontSize="Body"
                            LineBreakMode="WordWrap"
                            />
+                    <Button Text="Como llegar?"/>
+
 
                 </VerticalStackLayout>
             </Frame>

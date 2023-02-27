@@ -55,9 +55,7 @@
                                             />
                                     <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding Name}" FontSize="18" VerticalTextAlignment="Center"/>
 
-                                   
-                                    <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" TextColor="#575867"  Padding="0,0,0,10" Text="{Binding Description}"/>
-
+                                
                                     <!-- Features-->
                                     <!--<Image Grid.Row="3" Grid.Column="0" Source="beds" Style="{StaticResource FeatureControlImage}"/>
                                     <Label Grid.Row="3" Grid.Column="1" Text="{Binding Beds}" FontSize="12" TextColor="#797a87" HorizontalTextAlignment="Start"/>
