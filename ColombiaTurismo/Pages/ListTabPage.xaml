@@ -14,7 +14,7 @@
                 <ActivityIndicator IsRunning="True" />
                 <Label Text="Cargando..." />
             </VerticalStackLayout>
-             <ScrollView VerticalScrollBarVisibility="Never" toolkit:StateView.StateKey="Success">
+      <ScrollView VerticalScrollBarVisibility="Never" toolkit:StateView.StateKey="Success">
        <Grid RowDefinitions="Auto,Auto,Auto,*" ColumnDefinitions="*,*" Padding="20">
              <!--Icons
             <Image Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" Source="burger"/>

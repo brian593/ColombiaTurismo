@@ -7,8 +7,9 @@ using Microsoft.Maui.Graphics;
 
 using Color = Microsoft.Maui.Graphics.Color;
 using KnownColor = Mapsui.UI.Maui.KnownColor;
-
+#if ANDROID
 using static Google.Android.Material.Tabs.TabLayout;
+#endif
 
 namespace ColombiaTurismo.Pages;
 
