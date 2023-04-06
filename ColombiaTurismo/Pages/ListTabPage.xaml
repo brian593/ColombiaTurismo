@@ -20,11 +20,14 @@
             <Image Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" Source="burger"/>
             <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="End" HeightRequest="25" WidthRequest="30" Source="change"/>-->
             <!-- Title and results description-->
-            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Lugares turisticos de Colombia" Padding="0,20" FontSize="20"/>
+             <SearchBar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding TextSearch}" BackgroundColor="White">
+
+             </SearchBar>
             <Label Grid.Row="2" Grid.Column="0" Text="{Binding TotalCount}" TextColor="#8f909f"/>
             <Label Grid.Row="2" Grid.Column="1" Text="Acerca de" HorizontalTextAlignment="End" TextColor="#8f909f"/>
 
-           <!-- Catalog--> 
+           <!-- Catalog-->
+                      
                <CollectionView x:Name="listView" VerticalScrollBarVisibility="Never" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,20,0,0"
                     ItemsSource="{Binding TouristAttractions}">
                          <CollectionView.ItemTemplate>

@@ -6,12 +6,8 @@
     xmlns:local="clr-namespace:ColombiaTurismo.Pages"
     Shell.FlyoutBehavior="Disabled">
 
-    <TabBar>
        <ShellContent Title="Lista"
                      ContentTemplate="{DataTemplate local:ListTabPage}" />
-       <ShellContent Title="Mapa"
-                     ContentTemplate="{DataTemplate local:MapTabPage}" />
-    </TabBar>
 
 </Shell>
 

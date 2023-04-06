@@ -12,7 +12,7 @@
                     <Label Text="{Binding MyTouristAttraction.Description}" FontSize="Body"
                            LineBreakMode="WordWrap"
                            />
-                    <Button Text="Como llegar?"/>
+                    <Button Text="Como llegar?" Command="{Binding GoToMapCmd}"/>
 
 
                 </VerticalStackLayout>

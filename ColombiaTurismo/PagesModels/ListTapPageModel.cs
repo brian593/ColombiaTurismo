@@ -16,6 +16,7 @@ namespace ColombiaTurismo.PagesModels
         #region Variables
         string totalCount;
         string currentState;
+        string textSearch;
 
         private ObservableCollection<TouristAttraction> touristAttractions;
 
@@ -43,13 +44,19 @@ namespace ColombiaTurismo.PagesModels
         }
         #endregion
 
-        #region OBJETOS
+        #region Propiedades
 
         public string CurrentState
         {
             get { return currentState; }
-            set { SetValue(ref currentState, value); }
+            set {
+               
+                SetValue(ref currentState, value);
+               
+                }
         }
+
+       
 
         public ObservableCollection<TouristAttraction> TouristAttractions
         {
@@ -63,24 +70,36 @@ namespace ColombiaTurismo.PagesModels
             set { SetValue(ref totalCount, value); }
         }
 
+        public string TextSearch
+        {
+            get { return textSearch; }
+            set
+            {
+                SetValue(ref textSearch, value);
+
+
+                if (textSearch.Length > 0)
+                {
+                    OnSearchPlace();
+                }
+                else
+                {
+                    resetData();
+                }
+            }
+        }
         #endregion
 
         #region PROCESOS
 
         public async Task initInfo()
         {
-
             CurrentState= States.Loading;
-
             TouristAttractions = new ObservableCollection<TouristAttraction>
                 (await ApiServices.GetListTouristAttraction("https://api-colombia.com/api/v1/TouristicAttraction"));
-
             TotalCount = $"Total :{TouristAttractions.Count()} Lugares";
-
             CurrentState = States.Success;
             ((App)App.Current).GeneralTouristAttractions = TouristAttractions.ToList();
-
-
         }
 
        
@@ -98,8 +117,24 @@ namespace ColombiaTurismo.PagesModels
                 await DisplayAlert("Colombia Turismo", $"No pudimos navegar tenemos un error: {ex.Message}", "OK");
             }
         }
+        private void OnSearchPlace()
+        {
+            var foundPlace =  TouristAttractions.Where(x => x.Name.Contains(TextSearch)).ToList();
+            if (foundPlace.Count() > 0)
+                {
+                TouristAttractions.Clear();
+                TouristAttractions = new ObservableCollection<TouristAttraction>(foundPlace);
+                }
+        }
 
-
+        private void resetData()
+        {
+            if (((App)App.Current).GeneralTouristAttractions.Count()>0)
+            {
+                TouristAttractions.Clear();
+                TouristAttractions = new ObservableCollection<TouristAttraction>(((App)App.Current).GeneralTouristAttractions);
+            }
+        }
         #endregion
 
         #region COMANDOS
